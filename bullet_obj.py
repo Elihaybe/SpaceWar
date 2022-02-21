@@ -27,10 +27,13 @@ class Bullets:
     def remove_bullet(self, blt):
         self.bullets_display.remove(blt)
 
-    def handler(self, enemy_starship):
+    def movement_handler(self, enemy_starship):
         for blt in self.bullets_display:
-            blt.x += Bullets.vel
-            if enemy_starship.colliderect(blt):
+            if self.starship_side == Sids.left:
+                blt.x += Bullets.vel
+            else:
+                blt.x -= Bullets.vel
+            if enemy_starship.location.colliderect(blt):
                 self.remove_bullet(blt)
                 pygame.event.post(pygame.event.Event(enemy_starship.hit_event_id))
             elif (self.starship_side == Sids.left and blt.x > config.WIDTH) or (

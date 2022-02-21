@@ -25,7 +25,7 @@ class Starship:
         self.display_side = display_side
         self.bullets = Bullets(self.display_side)
         self.health = self.lives
-        self.image = pygame.Image.load(image_path)
+        self.image = pygame.image.load(image_path)
         self.display = pygame.transform.rotate(pygame.transform.scale(self.image, (self.width, self.height)), rotation)
         self.hit_event_id = hit_event_num
         self.movement_keys_system = self.arrow_keys if display_side == Sids.right else self.wdsa_keys

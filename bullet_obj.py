@@ -1,6 +1,6 @@
 import pygame
 from enums import Sids
-from starship_obj import Starship
+import starship_obj
 import game_config as config
 
 
@@ -11,24 +11,24 @@ class Bullets:
     max_bullets = 5
 
     def __init__(self, starship_side):
-        self.Bullets_display = []
+        self.bullets_display = []
         self.starship_side = starship_side
 
     def count(self):
-        return len(self.Bullets_display)
+        return len(self.bullets_display)
 
     def append_bullet(self, x, y):
         if self.starship_side == Sids.left:
             x += self.width
-        y += (Starship.height // 2) + 5
+        y += (starship_obj.Starship.height // 2) + 5
         blt = pygame.Rect(x, y, self.width, self.height)
-        self.Bullets_display.append(blt)
+        self.bullets_display.append(blt)
 
     def remove_bullet(self, blt):
-        self.Bullets_display.remove(blt)
+        self.bullets_display.remove(blt)
 
     def handler(self, enemy_starship):
-        for blt in self.Bullets_display:
+        for blt in self.bullets_display:
             blt.x += Bullets.vel
             if enemy_starship.colliderect(blt):
                 self.remove_bullet(blt)

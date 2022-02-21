@@ -46,6 +46,10 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 pygame.quit()
+            if event.type == pygame.KEYDOWN and event.key == red.movement_keys_system['fire']:
+                red.fire_handler()
+            if event.type == pygame.KEYDOWN and event.key == yellow.movement_keys_system['fire']:
+                yellow.fire_handler()
             if event.type == red.hit_event_id:
                 red.health -= 1
             if event.type == yellow.hit_event_id:
@@ -53,22 +57,16 @@ def main():
 
             if red.health <= 0:
                 winner_text = 'Yellow wins!'
-                red_bullets = []
-                yellow_bullets = []
             elif yellow.health <= 0:
                 winner_text = 'Red wins!'
-                yellow_bullets = []
-                red_bullets = []
             if winner_text != '':
                 draw_winner(winner_text)
                 run = False
         keys_pressed = pygame.key.get_pressed()
         yellow.movement_handler(keys_pressed)
         red.movement_handler(keys_pressed)
-        yellow.fire_handler(keys_pressed)
-        red.fire_handler(keys_pressed)
-        red.bullets.handler(enemy_starship=yellow)
-        yellow.bullets.handler(enemy_starship=red)
+        red.bullets.movement_handler(enemy_starship=yellow)
+        yellow.bullets.movement_handler(enemy_starship=red)
         draw_window(red, yellow)
 
     pygame.event.clear()

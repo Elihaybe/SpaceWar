@@ -13,12 +13,12 @@ class Starship:
                  "down": pygame.K_s,
                  "right": pygame.K_d,
                  "left": pygame.K_a,
-                 "fire": pygame.K_SPACE}
+                 "fire": pygame.K_TAB}
     arrow_keys = {"up": pygame.K_UP,
                   "down": pygame.K_DOWN,
                   "right": pygame.K_RIGHT,
                   "left": pygame.K_LEFT,
-                  "fire": pygame.K_TAB}
+                  "fire": pygame.K_SPACE}
 
     def __init__(self, x, y, rotation, image_path, hit_event_num, display_side):
         self.location = pygame.Rect(x, y, self.width, self.height)
@@ -38,11 +38,11 @@ class Starship:
 
     def movement_handler(self, keys_pressed):
         if self.display_side == Sids.right:
-            left_border = 0
-            right_border = config.BORDER.x
-        else:
             left_border = config.BORDER.x + config.BORDER.width
             right_border = config.WIDTH
+        else:
+            left_border = 0
+            right_border = config.BORDER.x
         if keys_pressed[self.movement_keys_system['left']] and self.location.x - self.vel > left_border:
             self.update_location(x=self.location.x - self.vel)
         if keys_pressed[
@@ -54,6 +54,6 @@ class Starship:
             'down']] and self.location.y + self.vel + self.location.height < config.HEIGHT - 15:
             self.location.y += self.vel
 
-    def fire_handler(self, keys_pressed):
-        if keys_pressed[self.movement_keys_system['fire']] and self.bullets.count() < Bullets.max_bullets:
+    def fire_handler(self):
+        if self.bullets.count() < Bullets.max_bullets:
             self.bullets.append_bullet(self.location.x, self.location.y)

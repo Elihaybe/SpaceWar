@@ -6,8 +6,8 @@ from enums import Sids
 
 class Starship:
     lives = 10
-    width = 55
-    height = 40
+    width = 100
+    height = 85
     vel = 5
     wdsa_keys = {"up": pygame.K_w,
                  "down": pygame.K_s,

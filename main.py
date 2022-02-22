@@ -33,9 +33,10 @@ def draw_winner(text):
 
 
 def main():
-    red = Starship(700, 300, rotation=270, image_path=config.RED_SPACESHIP_PATH, hit_event_num=pygame.USEREVENT + 1,
+    red = Starship(config.WIDTH - 100, config.HEIGHT//2, rotation=270, image_path=config.RED_SPACESHIP_PATH,
+                   hit_event_num=pygame.USEREVENT + 1,
                    display_side=Sids.right)
-    yellow = Starship(100, 300, rotation=90, image_path=config.YELLOW_SPACESHIP_PATH,
+    yellow = Starship(100, config.HEIGHT // 2, rotation=90, image_path=config.YELLOW_SPACESHIP_PATH,
                       hit_event_num=pygame.USEREVENT + 2, display_side=Sids.left)
     clock = pygame.time.Clock()
     winner_text = ''

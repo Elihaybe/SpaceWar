@@ -4,7 +4,7 @@ import os
 pygame.font.init()
 
 GAME_TITLE = 'My first game!'
-WIDTH, HEIGHT = 900, 500
+WIDTH, HEIGHT = 2000, 1200
 SPACE_BACKGROUND = pygame.transform.scale(pygame.image.load(os.path.join('Assets', 'space.png')), (WIDTH, HEIGHT))
 FPS = 60
 

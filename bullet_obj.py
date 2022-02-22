@@ -8,7 +8,7 @@ class Bullets:
     width = 20
     height = 10
     vel = 7
-    max_bullets = 5
+    max_bullets = 15
 
     def __init__(self, starship_side):
         self.bullets_display = []
@@ -19,7 +19,7 @@ class Bullets:
 
     def append_bullet(self, x, y):
         if self.starship_side == Sids.left:
-            x += self.width
+            x += starship_obj.Starship.width
         y += (starship_obj.Starship.height // 2) + 5
         blt = pygame.Rect(x, y, self.width, self.height)
         self.bullets_display.append(blt)

@@ -2,9 +2,10 @@ import pygame
 import os
 
 pygame.font.init()
+pygame.display.init()
 
-GAME_TITLE = 'My first game!'
-WIDTH, HEIGHT = 2000, 1200
+GAME_TITLE = 'Starship War'
+WIDTH, HEIGHT = pygame.display.Info().current_w, pygame.display.Info().current_h
 SPACE_BACKGROUND = pygame.transform.scale(pygame.image.load(os.path.join('Assets', 'space.png')), (WIDTH, HEIGHT))
 FPS = 60
 

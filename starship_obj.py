@@ -54,6 +54,10 @@ class Starship:
             'down']] and self.location.y + self.vel + self.location.height < config.HEIGHT - 15:
             self.location.y += self.vel
 
-    def fire_handler(self):
+    def fire_handler(self, fire_sound=None):
         if self.bullets.count() < Bullets.max_bullets:
             self.bullets.append_bullet(self.location.x, self.location.y)
+            if fire_sound:
+                pygame.mixer.init()
+                pygame.mixer.music.load(fire_sound)
+                pygame.mixer.music.play()

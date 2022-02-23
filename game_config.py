@@ -14,4 +14,5 @@ HEALTH_FONT = pygame.font.SysFont('comicsans', 40)
 WINNER_FONT = pygame.font.SysFont('comicsans', 100)
 YELLOW_SPACESHIP_PATH = os.path.join('Assets', 'spaceship_yellow.png')
 RED_SPACESHIP_PATH = os.path.join('Assets', 'spaceship_red.png')
-
+RED_FIRE_SOUND_PATH = os.path.join('Assets', 'laser_sound.mp3')
+YELLOW_FIRE_SOUND_PATH = os.path.join('Assets', 'gun_sound.mp3')

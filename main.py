@@ -48,9 +48,9 @@ def main():
                 run = False
                 pygame.quit()
             if event.type == pygame.KEYDOWN and event.key == red.movement_keys_system['fire']:
-                red.fire_handler()
+                red.fire_handler(config.RED_FIRE_SOUND_PATH)
             if event.type == pygame.KEYDOWN and event.key == yellow.movement_keys_system['fire']:
-                yellow.fire_handler()
+                yellow.fire_handler(config.YELLOW_FIRE_SOUND_PATH)
             if event.type == red.hit_event_id:
                 red.health -= 1
             if event.type == yellow.hit_event_id:

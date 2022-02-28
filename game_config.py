@@ -5,7 +5,7 @@ pygame.font.init()
 pygame.display.init()
 
 GAME_TITLE = 'Starship War'
-WIDTH, HEIGHT = pygame.display.Info().current_w, pygame.display.Info().current_h
+WIDTH, HEIGHT = pygame.display.Info().current_w - 200, pygame.display.Info().current_h - 200
 SPACE_BACKGROUND = pygame.transform.scale(pygame.image.load(os.path.join('Assets', 'space.png')), (WIDTH, HEIGHT))
 FPS = 60
 
